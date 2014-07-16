@@ -1,4 +1,3 @@
 ---
 :item:
-- !ruby/object:Item
-  name: walk the dog
+- '{"name":"walk the dog"}'

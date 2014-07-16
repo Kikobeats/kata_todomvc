@@ -1,3 +1,5 @@
+require 'json'
+
 ## => Item Class
 class Item
   attr_accessor :name
@@ -5,4 +7,9 @@ class Item
   def initialize(name)
     @name = name
   end
+
+  def json
+    { 'name' => @name }.to_json
+  end
+
 end

@@ -1,16 +1,16 @@
-require_relative '../controllers/ItemController'
+require_relative '../controllers/itemController'
+require_relative '../DAO/itemDAO'
 
 describe 'TODO Item spec' do
   before :each do
-    @item_controller = ItemController.new
-    @item_controller.purge
+    @item_controller = ItemController.new ItemDAO.new
     @item_controller.create('walk the dog')
     @item_controller.create('walk the turtle')
   end
 
   it 'should create an item with a name' do
-    expect(@item_controller.get(0).name).to eq('walk the dog')
-    expect(@item_controller.get(1).name).to eq('walk the turtle')
+    expect(@item_controller.get(0)["name"]).to eq('walk the dog')
+    expect(@item_controller.get(1)["name"]).to eq('walk the turtle')
   end
 
   it 'should delete an item' do
